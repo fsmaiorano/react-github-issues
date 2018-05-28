@@ -6,13 +6,17 @@ export const Container = styled.div`
   form {
     padding: 40px;
     input {
-        height: 60px;
+        height: 50px;
+        font-size: 14px;
         padding: 0px 18px;
+        min-height: 40px;
     }
     button {
         margin: 5px;
-        width: 59px;
-        height: 59px;
+        width: 49px;
+        height: 49px;
+        min-width: 40px;
+        min-height: 40px;
     }
     }
   }

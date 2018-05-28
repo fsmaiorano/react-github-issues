@@ -4,6 +4,8 @@ import api from '../../services/api';
 
 import { Container, LeftContent, RightContent } from './styles';
 
+import OrganizationList from '../../components/OrganizationList';
+
 class Main extends Component {
   state = {
     repositorySearch: 'facebook/react',
@@ -36,6 +38,7 @@ class Main extends Component {
             />
             <button type="submit">Adicionar</button>
           </form>
+          <OrganizationList repositories={this.state.repositories} />
         </LeftContent>
         <RightContent>dsadsad</RightContent>
       </Container>
