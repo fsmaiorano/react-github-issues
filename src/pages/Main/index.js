@@ -25,6 +25,10 @@ class Main extends Component {
     this.setState({ repositories: [...this.state.repositories, repository] });
   };
 
+  handleGetIssues = (repository) => {
+    console.log(repository);
+  };
+
   render() {
     return (
       <Container>
@@ -38,7 +42,10 @@ class Main extends Component {
             />
             <button type="submit">Adicionar</button>
           </form>
-          <OrganizationList repositories={this.state.repositories} />
+          <OrganizationList
+            repositories={this.state.repositories}
+            getIssues={this.handleGetIssues}
+          />
         </LeftContent>
         <RightContent>dsadsad</RightContent>
       </Container>
