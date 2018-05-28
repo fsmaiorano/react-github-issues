@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import api from '../../services/api';
 
+import { Container, LeftContent, RightContent } from './styles';
+
 class Main extends Component {
   state = {
     repositorySearch: 'facebook/react',
@@ -23,15 +25,20 @@ class Main extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleAddRepository}>
-        <input
-          type="text"
-          placeholder="usuário/repositório"
-          value={this.state.repositorySearch}
-          onChange={e => this.setState({ repositorySearch: e.target.value })}
-        />
-        <button type="submit">Adicionar</button>
-      </form>
+      <Container>
+        <LeftContent>
+          <form onSubmit={this.handleAddRepository}>
+            <input
+              type="text"
+              placeholder="usuário/repositório"
+              value={this.state.repositorySearch}
+              onChange={e => this.setState({ repositorySearch: e.target.value })}
+            />
+            <button type="submit">Adicionar</button>
+          </form>
+        </LeftContent>
+        <RightContent>dsadsad</RightContent>
+      </Container>
     );
   }
 }
