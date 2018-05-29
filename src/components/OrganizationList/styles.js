@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 10px 40px;
+  padding: 10px 1px;
   cursor: pointer;
 `;
 
@@ -24,6 +24,7 @@ export const Header = styled.div`
     flex-direction: column;
     margin: 10px 15px;
     text-align: left;
+    width: 100%;
 
     strong {
       font-size: 24px;
