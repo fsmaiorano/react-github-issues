@@ -25,8 +25,16 @@ class Main extends Component {
     this.setState({ repositories: [...this.state.repositories, repository] });
   };
 
-  handleGetIssues = (repository) => {
-    console.log(repository);
+  handleGetIssues = async (repository) => {
+    const { data: issues } = await api.get(`repos/${repository.organization.login}/${repository.name}/issues?state=all`);
+
+    this.state.repositories.forEach((repo) => {
+      if (repo === repository) {
+        Object.assign(repo, { issues });
+      }
+    });
+
+    this.setState({ repositories: [...this.state.repositories] });
   };
 
   render() {
