@@ -10,6 +10,7 @@ class Main extends Component {
   state = {
     repositorySearch: 'facebook/react',
     repositories: [],
+    selectedRepository: {},
   };
 
   componentDidMount() {}
@@ -33,8 +34,11 @@ class Main extends Component {
         Object.assign(repo, { issues });
       }
     });
-
-    this.setState({ repositories: [...this.state.repositories] });
+    this.setState({
+      selectedRepository: repository.id,
+      repositories: [...this.state.repositories],
+    });
+    console.log(this.state.selectedRepository);
   };
 
   render() {
