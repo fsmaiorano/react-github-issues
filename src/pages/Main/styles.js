@@ -10,6 +10,7 @@ export const Container = styled.div`
         font-size: 14px;
         padding: 0px 18px;
         min-height: 40px;
+        background-color: #EEE;
     }
     button {
         margin: 5px;
@@ -17,17 +18,16 @@ export const Container = styled.div`
         height: 49px;
         min-width: 40px;
         min-height: 40px;
+        background-color: #59EA9A;
     }
     }
   }
 `;
 
 export const LeftContent = styled.div`
-  flex: 1;
   height: 100vh;
   border-right: 1px solid black;
+  background-color: #fff;
 `;
 
-export const RightContent = styled.div`
-  flex: 3;
-`;
+export const RightContent = styled.div``;

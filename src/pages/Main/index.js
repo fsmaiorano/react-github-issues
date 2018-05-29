@@ -5,6 +5,7 @@ import api from '../../services/api';
 import { Container, LeftContent, RightContent } from './styles';
 
 import OrganizationList from '../../components/OrganizationList';
+import IssueList from '../../components/IssueList';
 
 class Main extends Component {
   state = {
@@ -35,10 +36,9 @@ class Main extends Component {
       }
     });
     this.setState({
-      selectedRepository: repository.id,
+      selectedRepository: repository,
       repositories: [...this.state.repositories],
     });
-    console.log(this.state.selectedRepository);
   };
 
   render() {
@@ -52,14 +52,18 @@ class Main extends Component {
               value={this.state.repositorySearch}
               onChange={e => this.setState({ repositorySearch: e.target.value })}
             />
-            <button type="submit">Adicionar</button>
+            <button type="submit">
+              <i className="fa fa-plus-circle" />
+            </button>
           </form>
           <OrganizationList
             repositories={this.state.repositories}
             getIssues={this.handleGetIssues}
           />
         </LeftContent>
-        <RightContent>dsadsad</RightContent>
+        <RightContent>
+          <IssueList repository={this.state.selectedRepository} />
+        </RightContent>
       </Container>
     );
   }
