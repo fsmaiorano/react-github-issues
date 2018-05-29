@@ -13,6 +13,7 @@ const OrganizationList = ({ repositories, getIssues }) => (
             <strong>{repo.name}</strong>
             <small>{repo.organization.login}</small>
           </div>
+          <i className="fa fa-chevron-right" />
         </Header>
       ))}
   </Container>

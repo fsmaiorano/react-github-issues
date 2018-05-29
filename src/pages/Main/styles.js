@@ -4,17 +4,19 @@ export const Container = styled.div`
   display: flex;
 
   form {
-    padding: 40px;
+
     input {
-        flex: 1;
+    flex: 1;
     height: 55px;
     padding: 0 20px;
     border: 0;
     font-size: 18px;
     color: #444;
+
     border-radius: 3px;
         background-color: #EEE;
     }
+
     button {
         width: 80px;
         height: 55px;
@@ -35,6 +37,7 @@ export const Container = styled.div`
 `;
 
 export const LeftContent = styled.div`
+  padding: 30px;
   height: 100vh;
   border-right: 1px solid black;
   background-color: #fff;

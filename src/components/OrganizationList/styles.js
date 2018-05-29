@@ -4,24 +4,26 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: 10px 40px;
   cursor: pointer;
-  background-color: green;
 `;
 
 export const Header = styled.div`
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   img {
     width: 65px;
-    margin: 0 10px;
   }
 
   div {
     display: flex;
     flex-direction: column;
+    margin: 10px 15px;
+    text-align: left;
 
     strong {
       font-size: 24px;
