@@ -38,7 +38,7 @@ export const Container = styled.div`
 
 export const LeftContent = styled.div`
   padding: 30px;
-  height: 100vh;
+  min-height: 100vh;
   border-right: 1px solid black;
   background-color: #fff;
 `;
