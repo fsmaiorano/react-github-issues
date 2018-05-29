@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container } from './styles';
+import { Container, Header } from './styles';
 
 const IssueList = ({ repository }) => (
   <Container>
     {repository.issues &&
       repository.issues.map(issue => (
-        <div key={issue.id}>
+        <Header key={issue.id}>
           <img src={issue.user.avatar_url} alt={issue.title} />
-          <p>{issue.title}</p>
-          <p>{issue.user.login}</p>
-        </div>
+          <div>
+            <strong>{issue.title}</strong>
+            <small>{issue.user.login}</small>
+          </div>
+        </Header>
       ))}
   </Container>
 );
