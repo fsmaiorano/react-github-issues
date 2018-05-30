@@ -89,4 +89,9 @@ export const Bottom = styled.div`
   width: 100%;
   flex-grow: 1;
   overflow-y: auto;
+
+  .loading {
+    font-size: 80px;
+    margin-top: 50px;
+  }
 `;

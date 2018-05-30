@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import api from '../../services/api';
 
@@ -14,6 +14,7 @@ class Main extends Component {
     repositories: [],
     selectedRepository: {},
     selectedFilter: 'all',
+    isLoading: false,
   };
 
   componentDidMount() {}
@@ -37,19 +38,27 @@ class Main extends Component {
   };
 
   handleGetIssues = async (repository) => {
-    const { data: issues } = await api.get(`repos/${repository.organization.login}/${repository.name}/issues?state=${
-      this.state.selectedFilter
-    }`);
+    this.setState({ isLoading: true });
 
-    this.state.repositories.forEach((repo) => {
-      if (repo === repository) {
-        Object.assign(repo, { issues });
-      }
-    });
-    this.setState({
-      selectedRepository: repository,
-      repositories: [...this.state.repositories],
-    });
+    try {
+      const { data: issues } = await api.get(`repos/${repository.organization.login}/${repository.name}/issues?state=${
+        this.state.selectedFilter
+      }`);
+
+      this.state.repositories.forEach((repo) => {
+        if (repo === repository) {
+          Object.assign(repo, { issues });
+        }
+      });
+      this.setState({
+        selectedRepository: repository,
+        repositories: [...this.state.repositories],
+      });
+      this.setState({ isLoading: false });
+    } catch (error) {
+      console.log(error);
+      this.setState({ isLoading: false });
+    }
   };
 
   changeFilter = (event) => {
@@ -87,14 +96,22 @@ class Main extends Component {
               repository={this.state.selectedRepository}
               getIssues={this.handleGetIssues}
             />
-            <select onChange={this.changeFilter} value={this.state.selectedFilter}>
-              <option value="all">Todos</option>
-              <option value="open">Abertas</option>
-              <option value="closed">Fechadas</option>
-            </select>
+            {Object.keys(this.state.selectedRepository).length > 0 ? (
+              <select onChange={this.changeFilter} value={this.state.selectedFilter}>
+                <option value="all">Todos</option>
+                <option value="open">Abertas</option>
+                <option value="closed">Fechadas</option>
+              </select>
+            ) : (
+              <div />
+            )}
           </TopRight>
           <Bottom>
-            <IssueList repository={this.state.selectedRepository} />
+            {this.state.isLoading ? (
+              <i className="fa fa-spinner fa-pulse loading" />
+            ) : (
+              <IssueList repository={this.state.selectedRepository} />
+            )}
           </Bottom>
         </Right>
       </Container>
