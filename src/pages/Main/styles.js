@@ -20,7 +20,7 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   flex-shrink: 0;
-  width: 70%;
+  width: 75%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -70,6 +70,9 @@ export const TopLeft = styled.div`
 export const TopRight = styled.div`
   flex-shrink: 0;
   display: inline-flex;
+  border: 1px solid black;
+  height: 100px;
+  padding: 30px;
 `;
 
 export const Bottom = styled.div`
