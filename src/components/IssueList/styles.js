@@ -15,10 +15,10 @@ export const Header = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-  border: 1px solid black;
+  background-color: #fff;
   padding: 20px;
   margin: 20px;
-  width: 300px;
+  width: 340px;
 
   img {
     width: 65px;
@@ -33,6 +33,10 @@ export const Header = styled.div`
 
     strong {
       font-size: 18px;
+      width: 230px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     small {
       font-size: 14px;

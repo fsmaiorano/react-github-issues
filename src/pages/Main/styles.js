@@ -70,9 +70,9 @@ export const TopLeft = styled.div`
 export const TopRight = styled.div`
   flex-shrink: 0;
   display: inline-flex;
-  border: 1px solid black;
   height: 100px;
   padding: 30px;
+  background-color: #e6e5e5;
 `;
 
 export const Bottom = styled.div`
