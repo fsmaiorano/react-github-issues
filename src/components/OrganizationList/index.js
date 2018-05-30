@@ -8,7 +8,9 @@ import Organization from '../Organization';
 const OrganizationList = ({ repositories, getIssues }) => (
   <Container>
     {repositories &&
-      repositories.map(repo => <Organization repository={repo} getIssues={getIssues} withIcon />)}
+      repositories.map(repo => (
+        <Organization key={repo.id} repository={repo} getIssues={getIssues} withIcon />
+      ))}
   </Container>
 );
 

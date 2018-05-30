@@ -13,6 +13,7 @@ class Main extends Component {
     repositorySearch: 'facebook/react',
     repositories: [],
     selectedRepository: {},
+    selectedFilter: '0',
   };
 
   componentDidMount() {}
@@ -49,6 +50,10 @@ class Main extends Component {
     });
   };
 
+  changeFilter = (event) => {
+    this.setState({ selectedFilter: event.target.value });
+  };
+
   render() {
     return (
       <Container>
@@ -79,6 +84,11 @@ class Main extends Component {
               repository={this.state.selectedRepository}
               getIssues={this.handleGetIssues}
             />
+            <select onChange={this.changeFilter} value={this.state.selectedFilter}>
+              <option value="0">Todos</option>
+              <option value="1">Abertas</option>
+              <option value="2">Fechadas</option>
+            </select>
           </TopRight>
           <Bottom>
             <IssueList repository={this.state.selectedRepository} />

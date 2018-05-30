@@ -73,6 +73,16 @@ export const TopRight = styled.div`
   height: 100px;
   padding: 30px;
   background-color: #e6e5e5;
+
+  select {
+    border: 0;
+    padding: 15px;
+    height: 53px;
+    font-size: 20px;
+    color: gray;
+    position: absolute;
+    right: 53px;
+  }
 `;
 
 export const Bottom = styled.div`
