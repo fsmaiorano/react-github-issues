@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   padding: 10px 1px;
   cursor: pointer;
+  flex-wrap: wrap;
 `;
 
 export const Header = styled.div`
@@ -18,7 +18,7 @@ export const Header = styled.div`
   border: 1px solid black;
   padding: 20px;
   margin: 20px;
-  width: 400px;
+  width: 300px;
 
   img {
     width: 65px;

@@ -20,10 +20,14 @@ export const Left = styled.div`
 
 export const Right = styled.div`
   flex-shrink: 0;
-  width: 100%;
+  width: 70%;
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 1086px) {
+    width: 63%;
+  }
 `;
 
 export const TopLeft = styled.div`
