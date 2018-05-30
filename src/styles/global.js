@@ -10,8 +10,6 @@ injectGlobal`
     box-sizing: border-box;
 }
 body {
-    width: 100%;
-    height: 100%;
     background-color: #F5F5F5;
     text-align: center;
     font-family: sans-serif;
@@ -19,8 +17,11 @@ body {
     -webkit-font-smoothing: antialiase !important;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row;
 }
 
+#root {
+    width: 100%;
+}
 
 `;

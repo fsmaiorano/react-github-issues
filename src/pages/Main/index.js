@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import api from '../../services/api';
 
-import { Container, LeftContent, RightContent } from './styles';
+import { Container, Left, Right, TopLeft, TopRight, Bottom } from './styles';
 
 import OrganizationList from '../../components/OrganizationList';
 import IssueList from '../../components/IssueList';
@@ -44,26 +44,33 @@ class Main extends Component {
   render() {
     return (
       <Container>
-        <LeftContent>
-          <form onSubmit={this.handleAddRepository}>
-            <input
-              type="text"
-              placeholder="usuário/repositório"
-              value={this.state.repositorySearch}
-              onChange={e => this.setState({ repositorySearch: e.target.value })}
+        <Left>
+          <TopLeft>
+            <form onSubmit={this.handleAddRepository}>
+              <input
+                type="text"
+                placeholder="usuário/repositório"
+                value={this.state.repositorySearch}
+                onChange={e => this.setState({ repositorySearch: e.target.value })}
+              />
+              <button type="submit">
+                <i className="fa fa-plus-circle" />
+              </button>
+            </form>
+          </TopLeft>
+          <Bottom>
+            <OrganizationList
+              repositories={this.state.repositories}
+              getIssues={this.handleGetIssues}
             />
-            <button type="submit">
-              <i className="fa fa-plus-circle" />
-            </button>
-          </form>
-          <OrganizationList
-            repositories={this.state.repositories}
-            getIssues={this.handleGetIssues}
-          />
-        </LeftContent>
-        <RightContent>
-          <IssueList repository={this.state.selectedRepository} />
-        </RightContent>
+          </Bottom>
+        </Left>
+        <Right>
+          <TopRight>TopRight</TopRight>
+          <Bottom>
+            <IssueList repository={this.state.selectedRepository} />
+          </Bottom>
+        </Right>
       </Container>
     );
   }

@@ -1,18 +1,36 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
+  overflow: hidden;
+  margin: 0px;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  box-sizing: border-box;
 `;
 
-export const LeftContent = styled.div`
+export const Left = styled.div`
+  flex-shrink: 0;
   padding: 30px;
-  min-height: 100vh;
-  border-right: 1px solid black;
   background-color: #fff;
 
-  form {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+export const Right = styled.div`
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TopLeft = styled.div`
+  flex-shink: 0;
+  background-color: #FFF;
+
+    form {
 
     input {
     flex: 1;
@@ -45,4 +63,13 @@ export const LeftContent = styled.div`
   }
 `;
 
-export const RightContent = styled.div``;
+export const TopRight = styled.div`
+  flex-shrink: 0;
+  display: inline-flex;
+`;
+
+export const Bottom = styled.div`
+  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+`;
