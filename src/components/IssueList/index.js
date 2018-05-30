@@ -12,6 +12,9 @@ const IssueList = ({ repository }) => (
           <div>
             <strong>{issue.title}</strong>
             <small>{issue.user.login}</small>
+            <a href={issue.html_url} target="_blank">
+              <i className="fa fa-external-link" /> Open Issue
+            </a>
           </div>
         </Header>
       ))}

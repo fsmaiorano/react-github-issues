@@ -42,5 +42,15 @@ export const Header = styled.div`
       font-size: 14px;
       color: #666;
     }
+
+    a {
+      margin-top: 10px;
+      border-radius: 5px;
+      width: 115px;
+      color: #fff;
+      text-decoration: none;
+      background-color: #b286d1;
+      padding: 10px 6px 10px 6px;
+    }
   }
 `;
