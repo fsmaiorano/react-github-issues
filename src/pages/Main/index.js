@@ -13,7 +13,7 @@ class Main extends Component {
     repositorySearch: 'facebook/react',
     repositories: [],
     selectedRepository: {},
-    selectedFilter: '0',
+    selectedFilter: 'all',
   };
 
   componentDidMount() {}
@@ -37,7 +37,9 @@ class Main extends Component {
   };
 
   handleGetIssues = async (repository) => {
-    const { data: issues } = await api.get(`repos/${repository.organization.login}/${repository.name}/issues?state=all`);
+    const { data: issues } = await api.get(`repos/${repository.organization.login}/${repository.name}/issues?state=${
+      this.state.selectedFilter
+    }`);
 
     this.state.repositories.forEach((repo) => {
       if (repo === repository) {
@@ -52,6 +54,7 @@ class Main extends Component {
 
   changeFilter = (event) => {
     this.setState({ selectedFilter: event.target.value });
+    this.handleGetIssues(this.state.selectedRepository);
   };
 
   render() {
@@ -85,9 +88,9 @@ class Main extends Component {
               getIssues={this.handleGetIssues}
             />
             <select onChange={this.changeFilter} value={this.state.selectedFilter}>
-              <option value="0">Todos</option>
-              <option value="1">Abertas</option>
-              <option value="2">Fechadas</option>
+              <option value="all">Todos</option>
+              <option value="open">Abertas</option>
+              <option value="closed">Fechadas</option>
             </select>
           </TopRight>
           <Bottom>
