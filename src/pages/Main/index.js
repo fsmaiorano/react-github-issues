@@ -25,7 +25,14 @@ class Main extends Component {
       id: data.id,
       organization: data.organization,
     };
-    this.setState({ repositories: [...this.state.repositories, repository] });
+
+    const exist = this.state.repositories.filter(repo => repo.id === repository.id);
+
+    if (exist.length === 0) {
+      this.setState({ repositories: [...this.state.repositories, repository] });
+    } else {
+      alert('Repositório já adicionado');
+    }
   };
 
   handleGetIssues = async (repository) => {
