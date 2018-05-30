@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Header } from './styles';
+import { Container } from './styles';
+
+import Organization from '../Organization';
 
 const OrganizationList = ({ repositories, getIssues }) => (
   <Container>
     {repositories &&
-      repositories.map(repo => (
-        <Header key={repo.id} onClick={() => getIssues(repo)}>
-          <img src={repo.organization.avatar_url} alt={repo.name} />
-          <div>
-            <strong>{repo.name}</strong>
-            <small>{repo.organization.login}</small>
-          </div>
-          <i className="fa fa-chevron-right" />
-        </Header>
-      ))}
+      repositories.map(repo => <Organization repository={repo} getIssues={getIssues} withIcon />)}
   </Container>
 );
 

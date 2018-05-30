@@ -4,6 +4,7 @@ import api from '../../services/api';
 
 import { Container, Left, Right, TopLeft, TopRight, Bottom } from './styles';
 
+import Organization from '../../components/Organization';
 import OrganizationList from '../../components/OrganizationList';
 import IssueList from '../../components/IssueList';
 
@@ -66,7 +67,12 @@ class Main extends Component {
           </Bottom>
         </Left>
         <Right>
-          <TopRight>TopRight</TopRight>
+          <TopRight>
+            <Organization
+              repository={this.state.selectedRepository}
+              getIssues={this.handleGetIssues}
+            />
+          </TopRight>
           <Bottom>
             <IssueList repository={this.state.selectedRepository} />
           </Bottom>
